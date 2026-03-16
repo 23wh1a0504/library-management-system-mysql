@@ -1,0 +1,19 @@
+USE library_db;
+
+INSERT INTO Members(name,email,phone,join_date)
+VALUES
+('Rahul','rahul@gmail.com','9876543210','2024-01-10'),
+('Priya','priya@gmail.com','9876543211','2024-02-15'),
+('Arjun','arjun@gmail.com','9876543212','2024-03-20');
+
+INSERT INTO Books(title,author,category,available_copies)
+VALUES
+('Database Systems','Navathe','Education',5),
+('Java Programming','Herbert Schildt','Programming',3),
+('Data Structures','Mark Allen Weiss','Computer Science',4);
+
+INSERT INTO Borrowed_Books(member_id,book_id,borrow_date,return_date,status)
+VALUES
+(1,2,'2024-04-01','2024-04-10','Returned'),
+(2,1,'2024-04-05',NULL,'Borrowed'),
+(3,3,'2024-04-07',NULL,'Borrowed');

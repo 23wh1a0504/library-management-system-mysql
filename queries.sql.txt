@@ -1,0 +1,36 @@
+USE library_db;
+
+-- View all members
+SELECT * FROM Members;
+
+-- View all books
+SELECT * FROM Books;
+
+-- View borrowed books
+SELECT * FROM Borrowed_Books;
+
+-- Members who borrowed books
+SELECT m.name, b.title, bb.borrow_date
+FROM Borrowed_Books bb
+JOIN Members m ON bb.member_id = m.member_id
+JOIN Books b ON bb.book_id = b.book_id;
+
+-- Books currently borrowed
+SELECT *
+FROM Borrowed_Books
+WHERE status = 'Borrowed';
+
+-- Count total members
+SELECT COUNT(*) AS total_members
+FROM Members;
+
+-- Most borrowed books
+SELECT b.title, COUNT(*) AS borrow_count
+FROM Borrowed_Books bb
+JOIN Books b ON bb.book_id = b.book_id
+GROUP BY b.title
+ORDER BY borrow_count DESC;
+
+-- Available books
+SELECT title, available_copies
+FROM Books;
