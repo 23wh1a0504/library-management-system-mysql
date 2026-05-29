@@ -5,7 +5,6 @@ SELECT * FROM Members;
 
 -- View all books
 SELECT * FROM Books;
-
 -- View borrowed books
 SELECT * FROM Borrowed_Books;
 
